@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="/static/CSS/chat.css">
+</head>
+<body>
+    <section class="chatApp">
+        <nav class="chatNavContainer">
+            <ul class="chatNavUl">
+                <li>
+                    <span>Wellcome</span>
+                    <strong id="myUsername">{{ request.user.username|capfirst }}</strong>
+                </li>
+                <li class="chatLogout">
+                    <a class="chatNavUl_a" href="{% url 'chats:logout' %}">Logout</a>
+                </li>
+            </ul>
+
+            <span class="chatGroupTitle">
+                Groups
+            </span>
+
+            <ul class="chatGroupList">
+                <a class="goToIndex" href="{% url 'chats:index' %}">Create Group +</a>
+                {% for mb in member %}
+                    <li>
+                        <a class="chatGroupList_a" href="{% url 'chats:chat-group' unique_code=mb.chat_group.unique_code %}">{{ mb.chat_group.title }}</a>
+                    </li>
+                {% empty %}
+                    <li>
+                        No Groups
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+
+        <main class="chatMainContainerBox">
+            <div>
+                <span class="chatGroupLinkHeader"><strong>Group Link</strong></span><br>
+                <span class="chatGroupLink">( 127.0.0.1:8000/join-chat/{{ chat_group.unique_code }} )</span>
+                <a href="{% url 'chats:leave-chat' unique_code=chat_group.unique_code %}" class="leaveGroupBtn">Leave Group</a><br>
+                {% if chat_group.creator == request.user %}
+                    <span class="warningLeaveMsg">You are the owner of this group if you leave the group will delete completely</span>
+                {% endif %}
+                <div id="chatUniqueCode" hidden="hidden">{{ chat_group.unique_code }}</div>
+            </div>
+            <section class="chatMainContainer" id="chatMainContainer">
+                {% for msg in messages %}
+                    {% if msg.sender == request.user and not msg.is_activity_msg %}
+                        <div class="myChat">
+                            <strong>You ({{ msg.created_at }})</strong><br><br>
+                            <div class="chatText">
+                                {{ msg.message }}
+                            </div>
+                        </div>
+                    {% elif msg.sender != request.user and not msg.is_activity_msg %}
+                        <div class="theirChat">
+                            <strong>{{ msg.sender|capfirst }} ({{ msg.created_at }})</strong><br><br>
+                            <div class="chatText">
+                                {{ msg.message }}
+                            </div>
+                        </div>
+                    {% elif msg.is_activity_msg and msg.message == 'left the group' %}
+                        <div class="activityChat">
+                            <div class="chatText activityMsg">{{ msg.sender|capfirst }} has left this group</div>
+                        </div>
+                    {% elif msg.is_activity_msg and msg.message == 'joined the group' %}
+                        <div class="activityChat">
+                            <div class="chatText activityMsg">{{ msg.sender|capfirst }} has joined in this group</div>
+                        </div>
+                    {% endif %}
+                {% empty %}
+                {% endfor %}
+            </section>
+            <div class="chatMessageInput">
+                <input type="text" placeholder="type ..." id="messageText">
+                <button type="button" id="messageSendBtn">Send</button>
+            </div>
+        </main>
+    </section>
+
+    <script src="/static/JS/chat.js"></script>
+</body>
+</html>

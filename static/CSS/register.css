@@ -1,0 +1,123 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #f3f3f3;
+}
+
+.registerHeaderContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2em 0 4em;
+    background-image: linear-gradient(to right, #acacac, #606060);
+}
+
+.registerHeaderMain {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+.registerHeaderMain span {
+    font-weight: 600;
+    color: orange;
+}
+
+.registerHeaderMain h1 {
+    color: orange;
+    font-size: 1.6em;
+}
+
+.registerHeaderMain p {
+    color: white;
+    font-size: 1.2em;
+}
+
+.registerMainContentContainer {
+    padding: 2em 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 1em;
+}
+
+.registerForm {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5em;
+    background-color: #606060;
+    padding: 3em 2em;
+    width: 40%;
+    border-radius: 1em;
+}
+
+.registerForm div {
+    display: flex;
+    flex-direction: column;
+}
+
+.registerForm label {
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.registerForm input {
+    font-size: 1em;
+    padding: 0.4em;
+    border: none;
+    outline: none;
+    color: black;
+    border-radius: 0.3em;
+    background-color: #f3f3f3;
+}
+
+.registerForm li {
+    color: #ff8181;
+    list-style-type: none;
+}
+
+.registerForm button {
+    font-size: 1.3em;
+    color: white;
+    background-color: orange;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    margin: 0 auto;
+    padding: 0.5em;
+    border-radius: 1em;
+}
+
+.registerForm button:hover {
+    opacity: 70%;
+    transition: 0.3s;
+}
+
+.registerForm button:active {
+    transform: translate(5%);
+    transition: 0.1s;
+}
+
+.goToLogin {
+    font-size: 1.2em;
+}
+
+.goToLogin a {
+    text-decoration: none;
+    color: goldenrod;
+}
+
+.goToLogin a:hover {
+    text-decoration: underline;
+}
+
+.goToLogin a:active {
+    color: #606060;
+}

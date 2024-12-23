@@ -1,0 +1,113 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #737373;
+}
+
+.chatNavContainer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    width: calc(100% / 4);
+    padding: 0 1em;
+}
+
+.chatNavUl {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.3em;
+    border-bottom: 2px dashed #9a9a9a;
+}
+
+.chatNavUl li {
+    list-style: none;
+    font-size: 1.5em;
+}
+
+.goToIndex {
+    text-decoration: none;
+    color: gold;
+    transition: 0.3s;
+}
+
+.goToIndex:hover {
+    text-decoration: underline;
+}
+
+.goToIndex:active {
+    opacity: 60%;
+}
+
+.chatNavUl span {
+    color: white;
+}
+
+.chatNavUl strong {
+    color: gold;
+}
+
+.chatNavUl_a {
+    background-color: #d292a1;
+    text-decoration: none;
+    color: white;
+    padding: 0.1em 1em;
+    border-radius: 0.2em;
+    font-size: 0.8em;
+}
+
+.chatNavUl a:hover {
+    opacity: 70%;
+    transition: 0.3s;
+}
+
+.chatNavUl a:active {
+    color: #606060;
+    transition: 0.1s;
+}
+
+.joinGroupMainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4em;
+    background-color: #dcdcdc;
+    width: 40%;
+    margin: 4em auto;
+    border-radius: 10%;
+}
+
+.joinGroupForm button {
+    background-color: #d292a1;
+    font-size: 1.3em;
+    padding: 0.2em 1.5em;
+    border: none;
+    cursor: pointer;
+    margin: 1em 0 0;
+    border-radius: 10%;
+    transition: 0.3s;
+    color: white;
+}
+
+.joinGroupForm button:hover {
+    opacity: 60%;
+}
+
+.joinGroupForm button:active {
+    color: #454545;
+}
+
+.joinGroupWantJoin {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: darkgoldenrod;
+}
+
+.joinGroupGroupName {
+    font-size: 1em !important;
+    font-weight: 600;
+    color: #454545;
+}

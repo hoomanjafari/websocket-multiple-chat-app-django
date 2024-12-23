@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/CSS/login.css">
+</head>
+<body>
+    <header class="registerHeaderContainer">
+        <section class="registerHeaderMain">
+            <h1>Multiple Chat Application</h1>
+            <p>For using multiple chatting You have to <span>login</span> first</p>
+        </section>
+    </header>
+
+    <main class="registerMainContentContainer">
+        <form method="post" class="registerForm">
+            {% csrf_token %}
+            <div>
+                <label>Username :</label>
+                <input type="text" name="username">
+                <p>{{ form.username.errors }}</p>
+            </div>
+            <div>
+                <label>Password :</label>
+                <input type="password" name="password">
+                <p>{{ form.password.errors }}</p>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+        <span class="goToLogin">
+            I want to
+            <strong>
+                <a href="{% url 'chats:register' %}">Register</a>
+            </strong>
+        </span>
+    </main>
+</body>
+</html>

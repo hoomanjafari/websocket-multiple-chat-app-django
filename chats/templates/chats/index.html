@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="/static/CSS/chat.css">
+</head>
+<body>
+    <section class="chatApp">
+        <nav class="chatNavContainer">
+            <ul class="chatNavUl">
+                <li>
+                    <span>Wellcome</span> <strong>{{ request.user.username|upper }}</strong>
+                </li>
+                <li class="chatLogout">
+                    <a class="chatNavUl_a" href="{% url 'chats:logout' %}">Logout</a>
+                </li>
+            </ul>
+
+            <span class="chatGroupTitle">
+                Groups
+            </span>
+
+            <ul class="chatGroupList">
+                {% for mb in member %}
+                    <li>
+                        <a class="chatGroupList_a" href="{% url 'chats:chat-group' unique_code=mb.chat_group.unique_code %}">{{ mb.chat_group.title }}</a>
+                    </li>
+                {% empty %}
+                    <li>
+                        No Groups
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+
+        <main class="chatMainContainer">
+                <form method="post" action="{% url 'chats:group-create' %}" class="createGroupForm">
+                    {% csrf_token %}
+                    <span>Pick a name for you're chat group</span>
+                    <input type="text" name="group_name"><br><br>
+                    {{ form.group_name.errors }}
+                    <button type="submit">Create</button>
+                </form>
+        </main>
+    </section>
+
+</body>
+</html>

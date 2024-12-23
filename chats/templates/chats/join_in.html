@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/CSS/join_in.css">
+</head>
+<body>
+    <main class="joinChatApp">
+        <nav class="chatNavContainer">
+            <ul class="chatNavUl">
+                <li>
+                    <span>Wellcome</span>
+                    <strong id="myUsername">{{ request.user.username|capfirst }}</strong>
+                </li>
+                <li class="chatLogout">
+                    <a class="chatNavUl_a" href="{% url 'chats:logout' %}">Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+        <section class="joinGroupMainContainer">
+            <span class="joinGroupWantJoin">
+                Want to join in this group ? <span class="joinGroupGroupName">( {{ chat_group.title }} )</span>
+            </span>
+
+            <form method="post" class=joinGroupForm>
+                {% csrf_token %}
+                <button>Join</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

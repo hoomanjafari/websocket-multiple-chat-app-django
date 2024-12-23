@@ -1,0 +1,319 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #737373;
+}
+
+.chatApp {
+    display: flex;
+}
+
+.chatNavContainer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    width: calc(100% / 4);
+    padding: 0 1em;
+}
+
+.chatNavUl {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.3em;
+    border-bottom: 2px dashed #9a9a9a;
+}
+
+.chatNavUl li {
+    list-style: none;
+    font-size: 1.5em;
+}
+
+.goToIndex {
+    text-decoration: none;
+    color: gold;
+    transition: 0.3s;
+}
+
+.goToIndex:hover {
+    text-decoration: underline;
+}
+
+.goToIndex:active {
+    opacity: 60%;
+}
+
+.chatNavUl span {
+    color: white;
+}
+
+.chatNavUl strong {
+    color: gold;
+}
+
+.chatNavUl_a {
+    background-color: #d292a1;
+    text-decoration: none;
+    color: white;
+    padding: 0.1em 1em;
+    border-radius: 0.2em;
+    font-size: 0.8em;
+}
+
+.chatNavUl a:hover {
+    opacity: 70%;
+    transition: 0.3s;
+}
+
+.chatNavUl a:active {
+    color: #606060;
+    transition: 0.1s;
+}
+
+.chatGroupList {
+    padding: 1em;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    background-color: #9a9a9a;
+    width: fit-content;
+    height: 26em;
+    border-radius: 0.5em;
+    overflow-y: scroll;
+    border: 3px solid #eaeaea;
+}
+
+.chatGroupList::-webkit-scrollbar {
+    width: 15px;
+}
+
+.chatGroupList::-webkit-scrollbar-track {
+    background-color: #bababa;
+}
+
+.chatGroupList::-webkit-scrollbar-thumb {
+    background-color: #454545;
+    border-radius: 6vw;
+}
+
+.chatGroupList_a {
+    text-decoration: none;
+    color: #d292a1;
+    transition: 0.3s;
+}
+
+.chatGroupList_a:hover {
+    opacity: 40%;
+}
+
+.chatGroupList_a:active {
+    color: #454545;
+}
+
+.chatGroupTitle {
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+    background-color: white;
+    color: #606060;
+    border-radius: 0.2em;
+    width: 9em;
+}
+
+.chatGroupList li {
+    width: 6em;
+    padding: 0.5em;
+    background-color: white;
+    color: #606060;
+    font-size: 1.5em;
+    border-radius: 10%;
+    text-align: center;
+}
+
+.chatMainContainerBox {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 2em;
+    width: calc(calc(100% / 1.5) - 6em);
+    height: calc(90%);
+    padding: 2em;
+}
+
+.chatGroupLinkHeader {
+    font-size: 1.3em;
+    color: gold;
+}
+
+.chatGroupLink {
+    font-size: 1.1em;
+    color: #e8e8e8;
+}
+
+.leaveGroupBtn {
+    background-color: #f84545;
+    color: white;
+    padding: 0.2em 1.3em;
+    border: none;
+    font-size: 1em;
+    border-radius: 10%;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.warningLeaveMsg {
+    font-size: 1em;
+    color: orange;
+}
+
+.chatMainContainer {
+    height: calc(90% - 6em);
+    display: flex;
+    flex-direction: column;
+    row-gap: 3em;
+    background-color: #e3e2e2;
+    border: 4px solid #454545;
+    border-radius: 2%;
+    padding: 3em;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+.chatMainContainer::-webkit-scrollbar {
+    width: 15px;
+}
+
+.chatMainContainer::-webkit-scrollbar-track {
+    background-color: #bababa;
+    border-radius: 5em;
+}
+
+.chatMainContainer::-webkit-scrollbar-thumb {
+    background-color: #454545;
+    border-radius: 6vw;
+}
+
+.chatMessageInput {
+    display: flex;
+    justify-content: center;
+}
+
+.chatMessageInput input {
+    font-size: 1.3em;
+    padding: 0.5em;
+    width: 90%;
+    border-radius: 10% 0 0 10%;
+    border: none;
+    background-color: #e3e2e2;
+    border: 4px solid #454545;
+    outline: none;
+}
+
+.chatMessageInput button {
+    border: none;
+    background-color: orange;
+    font-size: 1.3em;
+    padding: 0.5em;
+    border-radius: 0 30% 30% 0;
+    border: 4px solid #454545;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.chatMessageInput button:hover,
+.leaveGroupBtn:hover {
+    opacity: 60%;
+}
+
+.chatMessageInput button:active,
+.leaveGroupBtn:active {
+    background-color: olive;
+}
+
+.myChat {
+    background-color: #454545;
+    color: white;
+    width: 30em;
+    padding: 1em;
+    border-radius: 5%;
+}
+
+.theirChat {
+    background-color: #9c9c9c;
+    color: #272727;
+    width: 30em;
+    padding: 1em;
+    border-radius: 5%;
+    margin-left: auto;
+}
+
+.theirChat strong {
+    color: #a53a3a;
+    font-size: 1.2em;
+}
+
+.myChat strong {
+    color: orange;
+    font-size: 1.2em;
+}
+
+.chatText {
+    font-size: 1.2em;
+}
+
+.activityChat {
+    background-color: #d3d3d3;
+    font-size: 1.1em;
+    padding: 1em;
+    border-radius: 10%;
+}
+
+.activityMsg {
+    text-align: center;
+    font-size: 0.9em;
+    color: #5c5c5c;
+}
+
+.createGroupForm {
+    margin: 0 auto;
+}
+
+.createGroupForm span {
+    font-size: 1.3em;
+    margin-right: 1em;
+}
+
+.createGroupForm input {
+    padding: 0.2em;
+    font-size: 1.3em;
+    outline: none;
+    border-radius: 5%;
+    border: none;
+    border-bottom: 2px solid black;
+    color: #454545;
+}
+
+.createGroupForm button {
+    width: fit-content;
+    padding: 0.5em 2em;
+    background-color: #454545;
+    color: white;
+    border: none;
+    font-size: 1.3em;
+    border-radius: 10%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.createGroupForm button:hover {
+    opacity: 60%;
+}
+
+.createGroupForm button:active {
+    color: #454545;
+}
