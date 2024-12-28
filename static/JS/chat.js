@@ -11,9 +11,9 @@ window.addEventListener('load', () => {
 
 
 
-
+var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
 websocket = new WebSocket(
-    'ws://' + window.location.host + '/ws/chat/' + chatUniqueCode + '/'
+    ws_scheme + '://' + window.location.host + '/ws/chat/' + chatUniqueCode + '/'
 );
 
 
